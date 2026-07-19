@@ -1,3 +1,7 @@
 import { Module } from '@nestjs/common';
-@Module({})
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Transaccion } from './entities/transaccion.entity';
+@Module({
+  imports: [TypeOrmModule.forFeature([Transaccion])],
+})
 export class HistorialModule {}
