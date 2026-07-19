@@ -1,9 +1,11 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.enableCors();
-  await app.listen(process.env.PORT || 3000);
-}
-bootstrap();
+app.get('/', (req, res) => {
+  res.send('¡Servidor de Prueba Raw Express en línea! 🚀🛡️');
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
